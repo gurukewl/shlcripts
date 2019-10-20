@@ -17,7 +17,7 @@ sudo chmod 770 /media/NASDRIVE
 
 echo " "
 echo "****************************************************************"
-echo "Please enter the data path you would like to use to access nextCloud"
+echo "Please enter the data path you would like to use"
 echo "****************************************************************"
 read d
 
