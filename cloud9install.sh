@@ -7,13 +7,13 @@ echo "*****************************************************"
 echo "WELCOME TO THE AUTOMATED INSTALLATION SCRIPT"
 echo "-----------------------------------------------------"
 echo " "
-echo " This script will set up a CLOUD9 DE  on your target server"
+echo " This script will set up a cloud9 IDE  on your target server"
 echo " "
 echo "*****************************************************"
 
 echo " "
 echo "****************************************************************"
-echo "Please enter the data path you would like to use to access nextCloud"
+echo "Please enter the data path you would like to use to access Cloud9"
 echo "****************************************************************"
 read d
 
