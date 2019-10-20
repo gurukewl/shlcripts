@@ -1,24 +1,18 @@
 #!/bin/bash
 #
 clear
-
 echo " "
 echo "*****************************************************"
 echo "WELCOME TO THE NEXTCLOUD INSTALLATION SCRIPT"
 echo "-----------------------------------------------------"
-echo " "
 echo " This script will set up a ownCloud storage server on your target server"
-echo " "
 echo "*****************************************************"
-
 clear
-
 echo " "
 echo "****************************************************************"
 echo "Please enter the data path you would like to use to access nextCloud"
 echo "****************************************************************"
 read d
-
 clear
 
 apt update
@@ -56,7 +50,5 @@ echo " "
 echo "*****************************************************"
 echo "THE INSTALLATION HAS FINSIHED"
 echo "-----------------------------------------------------"
-echo " "
 echo " Please browse to your IP/nextcloud in your browser to access nextCloud"
-echo " "
 echo "**************************************************************************************************************"
