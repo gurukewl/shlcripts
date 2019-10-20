@@ -1,5 +1,6 @@
 #!/bin/bash
 
+cd
 clear
 
 echo " "
@@ -8,14 +9,10 @@ echo "WELCOME TO THE AUTOMATED INSTALLATION SCRIPT"
 echo "-----------------------------------------------------"
 echo " "
 echo " This script will set up a cloud9 IDE  on your target server"
-echo " "
-echo "*****************************************************"
-
-echo " "
+echo "-----------------------------------------------------"
+echo "Please enter the data path you would like to use to access Cloud9?"
 echo "****************************************************************"
-echo "Please enter the data path you would like to use to access Cloud9"
-echo "****************************************************************"
-read d
+read wd
 
 sudo apt update
 #apt-get upgrade -y
@@ -52,11 +49,6 @@ cat <<EOF >> /etc/init.d/cloud9-daemon
 
 ### BEGIN INIT INFO
 # Provides:          cloud9
-# Required-Start:    $remote_fs $syslog
-# Required-Stop:     $remote_fs $syslog
-# Default-Start:     2 3 4 5
-# Default-Stop:      0 1 6
-# Short-Description: Simple script to start cloud9 at boot
 # Description:       A simple script which will start / stop cloud9 at boot / shutdown.
 ### END INIT INFO
 
@@ -68,8 +60,8 @@ case "$1" in
     # echo "Starting noip"
     # run application you want to start
     cd /root/c9sdk
-    sudo nodejs /root/c9sdk/server.js -p 8181 -l 0.0.0.0 -a : -w /media/NASDRIVE/workspace &
-    #echo "Launching cloud9 with workspace root set to /media/NASDRIVE/workspace"
+    sudo nodejs server.js -p 8181 -l 0.0.0.0 -a : -w $wd/workspace &
+    #echo "Launching cloud9 with workspace root set to $wd/workspace"
     ;;
   stop)
     echo "Stopping cloud9"
@@ -89,7 +81,7 @@ sudo chmod 755 /etc/init.d/cloud9-daemon
 
 sudo update-rc.d cloud9-daemon defaults
 
-sudo mkdir -p $d/workspace
+sudo mkdir -p $wd/workspace
 
 clear
 
