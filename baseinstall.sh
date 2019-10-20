@@ -5,11 +5,7 @@ clear
 
 echo " "
 echo "*****************************************************"
-echo "WELCOME TO THE AUTOMATED INSTALLATION SCRIPT"
-echo "-----------------------------------------------------"
-echo " "
 echo " This script will set up a qbittorrent-nox, samba"
-echo " "
 echo "*****************************************************"
 
 sudo apt install ntfs-3g -y
