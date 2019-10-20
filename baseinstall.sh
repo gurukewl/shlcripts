@@ -21,9 +21,9 @@ echo "Please enter the data path you would like to use to access nextCloud"
 echo "****************************************************************"
 read d
 
-apt-get update
-#apt-get upgrade -y
-apt-get install qbittorrent-nox samba samba-common-bin -y
+apt update
+apt upgrade -y
+sudo apt install qbittorrent-nox samba samba-common-bin -y
 
 cat <<EOF >> /etc/samba/smb.conf
 [NASDrive]
@@ -55,7 +55,7 @@ echo " Please enter a password when prompted, this needs to be remembered"
 echo " "
 echo "********************************************************************"
 
-smbpasswd -a root
+sudo smbpasswd -a root
 
 clear
 
