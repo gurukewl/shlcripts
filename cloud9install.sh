@@ -1,5 +1,7 @@
 #!/bin/bash
 #
+pwd
+read d
 cd
 clear
 
@@ -41,34 +43,7 @@ echo "***************************************************************"
 echo "INSTALLING CLOUD9-DAEMON"
 echo "---------------------------------------------------------------"
 
-cat <<EOF >> /etc/init.d/cloud9-daemon
-#!/bin/bash
-### BEGIN INIT INFO
-# Provides:          cloud9
-# Description:       A simple script which will start / stop cloud9 at boot / shutdown.
-### END INIT INFO
-
-# If you want a command to always run, put it here
-
-# Carry out specific functions when asked to by the system
-case "$1" in
-  start)
-    cd /root/c9sdk
-    sudo nodejs server.js -p 8181 -l 0.0.0.0 -a : -w $wd/workspace &
-    #echo "Launching cloud9 with workspace root set to $wd/workspace"
-    ;;
-  stop)
-    echo "Stopping cloud9"
-    # kill application you want to stop
-    pkill -f "node ./server.js"
-    ;;
-  *)
-    echo "Usage: /etc/init.d/cloud9 {start|stop}"
-    exit 1
-    ;;
-esac
-EOF
-
+sudo mv $d/cloud9-daemon /etc/init.d/cloud9-daemon
 sudo chmod 755 /etc/init.d/cloud9-daemon
 sudo update-rc.d cloud9-daemon defaults
 sudo mkdir -p $wd/workspace
@@ -79,7 +54,5 @@ echo " "
 echo "*****************************************************"
 echo "THE INSTALLATION HAS FINSIHED"
 echo "-----------------------------------------------------"
-echo " "
 echo " Please browse to your IP:8181 in your browser to access cloud9"
-echo " "
 echo "**************************************************************************************************************"
