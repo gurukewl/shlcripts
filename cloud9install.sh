@@ -1,13 +1,10 @@
 #!/bin/bash
-
+#
 cd
 clear
 
 echo " "
 echo "*****************************************************"
-echo "WELCOME TO THE AUTOMATED INSTALLATION SCRIPT"
-echo "-----------------------------------------------------"
-echo " "
 echo " This script will set up a cloud9 IDE  on your target server"
 echo "-----------------------------------------------------"
 echo "Please enter the data path you would like to use to access Cloud9?"
@@ -46,7 +43,6 @@ echo "---------------------------------------------------------------"
 
 cat <<EOF >> /etc/init.d/cloud9-daemon
 #!/bin/bash
-
 ### BEGIN INIT INFO
 # Provides:          cloud9
 # Description:       A simple script which will start / stop cloud9 at boot / shutdown.
@@ -57,8 +53,6 @@ cat <<EOF >> /etc/init.d/cloud9-daemon
 # Carry out specific functions when asked to by the system
 case "$1" in
   start)
-    # echo "Starting noip"
-    # run application you want to start
     cd /root/c9sdk
     sudo nodejs server.js -p 8181 -l 0.0.0.0 -a : -w $wd/workspace &
     #echo "Launching cloud9 with workspace root set to $wd/workspace"
@@ -73,14 +67,10 @@ case "$1" in
     exit 1
     ;;
 esac
-
-exit 0
 EOF
 
 sudo chmod 755 /etc/init.d/cloud9-daemon
-
 sudo update-rc.d cloud9-daemon defaults
-
 sudo mkdir -p $wd/workspace
 
 clear
