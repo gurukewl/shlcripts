@@ -11,7 +11,7 @@ echo " This script will set up a qbittorrent-nox, samba"
 echo " "
 echo "*****************************************************"
 
-sudo apt install ntfs-3g
+sudo apt install ntfs-3g -y
 sudo mkdir /media/NASDRIVE
 sudo chmod 770 /media/NASDRIVE
 
