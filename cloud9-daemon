@@ -17,6 +17,7 @@ case "$1" in
   start)
     # echo "Starting noip"
     # run application you want to start
+    cloudcmd &
     cd /root/c9sdk
     sudo nodejs /root/c9sdk/server.js -p 8181 -l 0.0.0.0 -a : -w /media/NASDRIVE/workspace &
     #echo "Launching cloud9 with workspace root set to /media/NASDRIVE/workspace"
