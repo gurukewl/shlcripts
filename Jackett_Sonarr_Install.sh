@@ -3,7 +3,7 @@
 clear
 echo " "
 echo "*****************************************************"
-echo " This script will set up Jackett and Sonarr on your target server"
+echo " This script will set up Sonarr on your target server"
 echo "*****************************************************"
 
 cd 
@@ -21,11 +21,18 @@ cd /opt
 wget http://update.sonarr.tv/v2/master/mono/NzbDrone.master.tar.gz
 sudo tar -xf NzbDrone* 
 
+cd 
+cd shell
 mv sonarr.service /etc/systemd/system/sonarr.service
 sudo systemctl enable /etc/systemd/system/sonarr.service
 sudo service sonarr start
 clear
 
+echo " "
+echo "*****************************************************"
+echo " This script will set up Jackett on your target server"
+echo "*****************************************************"
+cd /opt
 wget --no-check-certificate https://github.com/Jackett/Jackett/releases/download/v0.12.869/Jackett.Binaries.LinuxARM64.tar.gz
 sudo tar -xf Jackett*
 cd Jackett
