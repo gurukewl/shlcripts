@@ -3,6 +3,7 @@ These are the scripts to setup the below funcationalities on afresh Ubuntu or De
 Autostart scripts are kept along with the folder download. 
 
 a) Qbittorrent-Nox bittorrent
+
 b) Samba Share
 c) Sonarr
 d) Jackett
