@@ -19,7 +19,7 @@ sudo apt update
 clear
 
 echo " "
-echo "***************************************************************"
+echo "---------------------------------------------------------------"
 echo "INSTALLING CLOUD9"
 echo "---------------------------------------------------------------"
 
@@ -31,6 +31,12 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en:el
 
 sudo apt install git nodejs -y
+
+echo "---------------------------------------------------------------"
+echo "INSTALLING CLOUD Commander "
+echo "---------------------------------------------------------------"
+npm i cloudcmd -g
+#npm i cloudcmd -g --force
 
 git clone https://github.com/c9/core.git c9sdk
 
