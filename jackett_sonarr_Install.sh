@@ -17,6 +17,8 @@ sudo apt update
 #wget -q https://packages.sury.org/php/apt.gpg -O- | sudo apt-key add -
 #echo "deb https://packages.sury.org/php/ stretch main" | sudo tee /etc/apt/sources.list.d/php.list
 
+sudo apt install mono-devel mediainfo sqlite3 libmono-cil-dev curl ca-certificates-mono libcurl4-openssl-dev -y
+
 cd /opt
 wget http://update.sonarr.tv/v2/master/mono/NzbDrone.master.tar.gz
 sudo tar -xf NzbDrone* 
