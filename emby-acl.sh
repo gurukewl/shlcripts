@@ -7,6 +7,8 @@ declare -r USERNAME="$1"
 declare -r GROUP="$2"
 declare -r MEDIA_DIRECTORY="$3"
 
+apt install acl
+
 function tests {
 
     local thisScript=`basename "$0"`
