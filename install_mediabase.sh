@@ -39,7 +39,7 @@ if [ "$FREESPACE" -lt "500" ]; then
   	exit 1
 fi  
 
-
+sudo echo "Y" | apt-get install git -y
 git clone https://github.com/coolsdaks/MediaBase.git
 unzip max2play_base.zip -d max2play
 mkdir /opt
