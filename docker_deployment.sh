@@ -72,14 +72,16 @@ docker run -d \
 
 #Installing Sonarr
 echo '==>Installing Sonarr...'
-docker run -d \
+docker run -d\
   --name=sonarr \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Asia/Kolkata \
   -p 8989:8989 \
-  -v /root/.config/sonarr:/config \
-  --restart always\
+  -v /home/arijit/.config/sonarr:/config \
+  -v /mnt/MEDIADRIVE/Media/TVShows:/tv \
+  -v /mnt/DATADRIVE/Completed:/downloads \
+  --restart always \
   linuxserver/sonarr
 
 #Installing JellyFin
@@ -131,16 +133,17 @@ docker run -d\
   --restart always \
   linuxserver/remmina
 
-echo '==>Installing CloudCommander service...'
-docker run -d\
-  --name=cloudcommander \
+echo '==>Installing Double Commander service...'
+docker run -d \
+  --name=doublecommander \
   -e PUID=1000 \
   -e PGID=1000 \
-  -e TZ=Asia/Kolkata \
-  -p 8999:8000 \
-  -v /root/.config/cloudcmd:/config \
+  -e TZ=Asis/Kolkata \
+  -p 3000:3000 \
+  -v /home/arijit/.config/doublecommander:/config \
+  -v /mnt:/data \
   --restart always \
-  team0/rpi-cloudcmd
+  linuxserver/doublecommander
 
 echo '#######################################'
 echo 'All docker services have been deployed successfully'
@@ -153,5 +156,5 @@ echo '  c)Sonarr via http://my-ip:8989'
 echo '  d)Jellyfin via http://my-ip:8096'
 echo '  e)NextCloud via https://my-ip/nextcloud'
 echo '  f)Remmina via http://my-ip:3999'
-echi '  g)CloudCommander via http://my-ip:8999'
+echi '  g)Double Commander via http://my-ip:3000'
 echo '#######################################'
