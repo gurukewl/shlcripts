@@ -157,6 +157,19 @@ docker run -d \
   -v /mnt:/data \
   --restart always \
   linuxserver/doublecommander
+  
+echo '==>Installing Calibre-Web service...'
+docker run -d \
+  --name=calibre-web \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Asia/Kolkata \
+  -e DOCKER_MODS=linuxserver/calibre-web:calibre \
+  -p 8083:8083 \
+  -v /home/arijit/.config/calibre-web:/config \
+  -v /mnt/MEDIADRIVE/Media/Ebooks:/books \
+  --restart always \
+  linuxserver/calibre-web
 
 echo '#######################################'
 echo 'All docker services have been deployed successfully'
@@ -171,4 +184,5 @@ echo '  e)NextCloud via https://my-ip/nextcloud'
 echo '  f)Remmina via http://my-ip:3999'
 echo '  g)Double Commander via http://my-ip:3000'
 echo '  h)Radarr via http://my-ip:7878'
+echo '  i)Calibre-web via http://my-ip:8083'
 echo '#######################################'
