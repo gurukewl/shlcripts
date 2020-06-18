@@ -83,6 +83,19 @@ docker run -d\
   -v /mnt/DATADRIVE/Completed:/downloads \
   --restart always \
   linuxserver/sonarr
+  
+  #Installing Radarr
+  docker run -d \
+  --name=radarr \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Asia/Kolkata \
+  -p 7878:7878 \
+  -v /home/arijit/.config/radarr:/config \
+  -v /mnt/MEDIADRIVE/Media/Movies:/movies \
+  -v /mnt/DATADRIVE/Completed:/downloads \
+  --restart always \
+  linuxserver/radarr
 
 #Installing JellyFin
 echo '==>Installing Jellyfin docker...'
@@ -156,5 +169,6 @@ echo '  c)Sonarr via http://my-ip:8989'
 echo '  d)Jellyfin via http://my-ip:8096'
 echo '  e)NextCloud via https://my-ip/nextcloud'
 echo '  f)Remmina via http://my-ip:3999'
-echi '  g)Double Commander via http://my-ip:3000'
+echo '  g)Double Commander via http://my-ip:3000'
+echo '  h)Radarr via http://my-ip:7878'
 echo '#######################################'
