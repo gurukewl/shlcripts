@@ -170,6 +170,19 @@ docker run -d \
   -v /mnt/MEDIADRIVE/Media/Ebooks:/books \
   --restart always \
   linuxserver/calibre-web
+  
+echo '==>Installing Bazarr service...'
+docker run -d \
+  --name=bazarr \
+  -e PUID=1000 \
+  -e PGID=1000 \
+  -e TZ=Asia/Kolkata \
+  -p 6767:6767 \
+  -v /home/arijit/.config/bazarr:/config \
+  -v /mnt/MEDIADRIVE/Media/Movies:/movies \
+  -v /mnt/MEDIADRIVE/Media/TVShows:/tv \
+  --restart always \
+  linuxserver/bazarr
 
 echo '#######################################'
 echo 'All docker services have been deployed successfully'
@@ -185,4 +198,5 @@ echo '  f)Remmina via http://my-ip:3999'
 echo '  g)Double Commander via http://my-ip:3000'
 echo '  h)Radarr via http://my-ip:7878'
 echo '  i)Calibre-web via http://my-ip:8083'
+echo '  i)Bazarr via http://my-ip:6767'
 echo '#######################################'
