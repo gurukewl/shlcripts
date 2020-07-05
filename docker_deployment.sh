@@ -119,7 +119,7 @@ echo '==>Installing Cloud9 service...'
   -e PGID=1000 \
   -e TZ=Asia/Kolkata \
   -p 8000:8000 \
-  -v /home/arijit/myCode:/code 
+  -v /home/arijit/myCode:/code \
   --restart always \
   linuxserver/cloud9
 
