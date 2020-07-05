@@ -113,12 +113,13 @@ docker run -d \
 
 #Installing Cloud9
 echo '==>Installing Cloud9 service...'
-docker run -d \
+  docker run -d \
   --name=cloud9 \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Asia/Kolkata \
   -p 8000:8000 \
+  -v /home/arijit/myCode:/code 
   --restart always \
   linuxserver/cloud9
 
