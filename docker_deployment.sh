@@ -60,13 +60,13 @@ echo '==>Installing qBittorrent docker...'
 
 #Installing Jackett
 echo '==>Installing Jackett docker...'
-docker run -d \
+  docker run -d \
   --name=jackett \
   -e PUID=1000 \
   -e PGID=1000 \
   -e TZ=Asia/Kolkata \
   -p 9117:9117 \
-  -v /root/.config/jackett:/config \
+  -v /home/arijit/.config/jackett:/config \
   --restart always \
   linuxserver/jackett
 
